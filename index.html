@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Tweets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .switch {
+            margin-top: 10px;
+        }
+        .tweet {
+            background: #e0e0e0;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .actions button {
+            margin-right: 5px;
+        }
+        .replies p {
+            margin: 5px 0;
+        }
+        #profile-view {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #edit-profile-view {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="auth-container">
+        <div id="login-view">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" id="login-email" placeholder="Correo electrónico">
+            <input type="password" id="login-password" placeholder="Contraseña">
+            <button onclick="login()">Iniciar Sesión</button>
+            <div class="switch">
+                <p>No tienes cuenta? <a href="#" onclick="showRegister()">Regístrate</a></p>
+            </div>
+        </div>
+        <div id="register-view" style="display: none;">
+            <h2>Registrarse</h2>
+            <input type="email" id="register-email" placeholder="Correo electrónico">
+            <input type="password" id="register-password" placeholder="Contraseña">
+            <button onclick="register()">Registrarse</button>
+            <div class="switch">
+                <p>Ya tienes cuenta? <a href="#" onclick="showLogin()">Inicia sesión</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="app-container" style="display: none;">
+        <h2>Mi Feed de Tweets</h2>
+        <button onclick="logout()">Cerrar Sesión</button>
+        <button onclick="showEditProfile()">Editar Perfil</button>
+        <div id="tweet-feed"></div>
+        <div>
+            <input type="text" id="tweet-text" placeholder="Escribe un tweet">
+            <button onclick="postTweet()">Publicar Tweet</button>
+        </div>
+    </div>
+    <div id="profile-view">
+        <h2>Perfil de Usuario</h2>
+        <p><strong>Nombre de Usuario:</strong> <span id="profile-username"></span></p>
+        <p><strong>Biografía:</strong> <span id="profile-bio"></span></p>
+        <p><strong>ID de Juego:</strong> <span id="profile-game-id"></span></p>
+        <button onclick="hideProfile()">Cerrar</button>
+    </div>
+    <div id="edit-profile-view">
+        <h2>Editar Perfil</h2>
+        <input type="text" id="edit-username" placeholder="Nuevo Nombre de Usuario">
+        <input type="text" id="edit-bio" placeholder="Nueva Biografía">
+        <input type="text" id="edit-game-id" placeholder="Nuevo ID de Juego">
+        <button onclick="updateProfile()">Actualizar Perfil</button>
+        <button onclick="hideEditProfile()">Cancelar</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
