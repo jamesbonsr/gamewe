@@ -1,0 +1,78 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegurar que el cuerpo ocupe toda la altura de la pantalla */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;      /* Centra verticalmente */
+    background-color: #f5f8fa;
+}
+
+/* Contenedor principal de la app */
+#app-container {
+    width: 100%;
+    max-width: 600px; /* Limita el tamaño del contenedor */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center; /* Centrar el texto dentro del contenedor */
+}
+
+/* Centrando el contenido del feed */
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;  /* Asegura que los botones ocupen todo el ancho */
+    max-width: 200px; /* Limita el tamaño máximo de los botones */
+}
+
+button:hover {
+    background-color: #0d8ee5;
+}
+
+.tweet {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around; /* Distribuye los botones uniformemente */
+    margin: 10px 0;
+    width: 100%;
+    max-width: 400px; /* Limita el ancho de las acciones */
+}
+
+.replies {
+    margin-left: 20px;
+    font-size: 0.9em;
+}
